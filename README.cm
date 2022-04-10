@@ -1,0 +1,19 @@
+= CHIP-8 Related stuff
+
+Only supports "Vanilla" CHIP-8.
+
+== List
+
++ `asm.py`: CHIP-8 Assembler.
++ `disasm.py`: CHIP-8 Disassembler.
++ `main_tkinter.py`: CHIP-8 Emulator using tkinter (partially working; no sound).
+  + `--schip-compatible`: This does not mean it supports S-CHIP games.
+    It only means it'll:
+    + interpret `8XY6` as `V[X] = V[X] >> 1` instead of `V[X] = V[Y] >> 1`
+    + interpret `8XYE` as `V[X] = V[X] << 1` instead of `V[X] = V[Y] << 1`
+    + not update `I` when executing `FX55` and `FX65`
+    This is to be compatible with Erik Bryntse's SUPER-CHIP v1.1.
+    {link(SUPER-CHIP v1.1):http://devernay.free.fr/hacks/chip8/schip.txt}
++ `test`: Test ROMs.
+  + `keypad.ch8`: Keypad test 1.
++ `disasm_mnemonics.txt`: mnemonics lookup table

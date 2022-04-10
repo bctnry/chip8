@@ -1,0 +1,53 @@
+@200
+
+JMP #MAIN
+
+;; Keypad test & odd ROM size test
+;; 1.  your emulator should load this ROM with no problem.
+;; 2.  when run, your emulator should display "OK" at the top-left corner.
+;; 3.  when run, your emulator should be able to accept key presses.
+;;     when a key is pressed, the key value should be displayed right below
+;;     the "OK" sign; when the key is released, it should disappear.
+;;     the displayed key value should be correct according to your emulator's
+;;     keyboard mapping.
+
+#OK
+$0b11101010
+$0b10101010
+$0b10101100
+$0b10101010
+$0b11101010
+
+#ON
+$0b11110000
+$0b11110000
+$0b11110000
+$0b11110000
+
+#PRINT_OK
+    LDI #OK
+    LD VA, 1
+    LD VB, 1
+    DRAW VA, VB, 5
+    RET
+
+#TOGGLE_ON
+    CHAR V6
+    LD VA, 1
+    LD VB, 7
+    DRAW VA, VB, 5
+    RET
+
+#MAIN
+    CALL #PRINT_OK
+#LOOP
+    WAITKEY V6
+    CALL #TOGGLE_ON
+    #LOOP1
+        IF_NOTKEY V6
+        JMP #LOOP2
+        JMP #LOOP1
+    #LOOP2
+        CALL #TOGGLE_ON
+    JMP #LOOP
+    

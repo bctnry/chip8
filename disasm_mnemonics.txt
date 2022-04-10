@@ -1,0 +1,36 @@
+CHIP-8 | Octo | DISASM
+------------------------------
+00E0 | clear | CLEAR_SCREEN
+00EE | return | RET
+1NNN | jump NNN | JMP 0xNNN
+2NNN | NNN | CALL 0xNNN
+3XNN | if vx != NN then | IF_NEQ Vx,0xNN:
+4XNN | if vx == NN then | IF_EQ Vx,0xNN:
+5XY0 | if vx != vy then | IF_NEQ Vx,Vy:
+6XNN | vx := NN | LD Vx,0xNN
+7XNN | vx += NN | ADD Vx,0xNN
+8XY0 | vx := vy | LD Vx,Vy
+8XY1 | vx |= vy | OR Vx,Vy
+8XY2 | vx &= vy | AND Vx,Vy
+8XY3 | vx ^= vy | XOR Vx,vy
+8XY4 | vx += vy | ADDC Vx,Vy
+8XY5 | vx -= vy | SUBC Vx,Vy
+8XY6 | vx >>= vy | SHR Vx,Vy
+8XY7 | vx =- vy | SUB2 Vx,Vy
+8XYE | vx <<= vy | SHL Vx,Vy
+9XY0 | if vx == vy then | IF_EQ Vx,Vy:
+ANNN | i := NNN | LDI 0xNNN
+BNNN | jump0 NNN | JMPV0 0xNNN
+CXNN | vx := random NN | RANDOM Vx,NN
+DXYN | sprite vx vy N | DRAW Vx,Vy,N
+EX9E | if vx -key then | IF_NOTKEY Vx:
+EXA1 | if vx key then | IF_KEY Vx:
+FX07 | vx := delay | GET_DELAY Vx
+FX0A | vx := key | WAITKEY Vx
+FX15 | delay := vx | SET_DELAY Vx
+FX18 | buzzer := vx | SET_SOUND Vx
+FX1E | i += vx | ADD I,Vx
+FX29 | i := hex vx | CHAR Vx
+FX33 | bcd vx | BCD Vx
+FX55 | save vx | STR 0xx
+FX65 | load vx | LDR 0xx
