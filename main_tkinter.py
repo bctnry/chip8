@@ -157,7 +157,12 @@ def exec():
 
         if s[0] == '0':
             if s == '00E0':
-                for i in range(64 * 32): SCREEN[i] = False
+                for i in range(64 * 32):
+                    SCREEN[i] = False
+                    canvas_main.itemconfigure(i,
+                        fill='black',
+                        outline='black',
+                    )
                 PC += 2
             elif s == '00EE':
                 SP -= 1
@@ -374,7 +379,7 @@ root.bind('<KeyRelease>', handle_key_up)
 root.bind('<Destroy>', handle_destroy)
 
 def timed_thread():
-    SPEED_FACTOR = 45
+    SPEED_FACTOR = 100
     DELAY = 0
     SOUND = 0
     while True:

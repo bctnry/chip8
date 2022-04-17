@@ -14,6 +14,12 @@ Only supports "Vanilla" CHIP-8.
     + not update `I` when executing `FX55` and `FX65`
     This is to be compatible with Erik Bryntse's SUPER-CHIP v1.1.
     {link(SUPER-CHIP v1.1):http://devernay.free.fr/hacks/chip8/schip.txt}
++ `main_sdl2.py`: CHIP-8 Emulator using PySDL2. (partially working; no sound).
 + `test`: Test ROMs.
   + `keypad.ch8`: Keypad test 1.
 + `disasm_mnemonics.txt`: mnemonics lookup table
+
+
+> Was trying to learn SDL2 & game development thru this. Lots of bugs. Reminds me of my first radio kit about 13 years ago. Hours of painful soldering ended up with a product that can reproduce sound from local radio station but the sound quality is bad and the volume is faint as hell.
+> 
+> There must've been some fundamental error with my mental model. Should work on it somehow...
